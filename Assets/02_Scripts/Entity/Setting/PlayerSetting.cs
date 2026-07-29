@@ -21,7 +21,6 @@ public class PlayerSetting : MonoBehaviour
         PlayerEntity = GetComponent<Entity>();
         PlayerEntity.HP = status.HP;
         GetComponent<Module_Move>().MoveSpeed = status.Speed;
-        UIManager.Instance.LevelText.text = $"Level : {level}";
     }
 
     void Update()
@@ -44,6 +43,7 @@ public class PlayerSetting : MonoBehaviour
     {
         currPlayerHP = PlayerEntity.HP;
         UIManager.Instance.SetSliderValue(SliderEnum.HP, currPlayerHP);
+        UIManager.Instance.LevelText.text = $"Level : {level}";
 
         StartCoroutine(FindNearestEnemy());
     }
