@@ -5,15 +5,19 @@ public class PlayerSetting : MonoBehaviour
 {
     [SerializeField] Status status;
     [SerializeField] List<Item> canGetItems;
-    public Entity PlayerEntity { get; set; }
     private float exp;
     private int level = 1;
+
+
+    public Entity PlayerEntity { get; set; }
+    float currPlayerHP;
 
     void Awake()
     {
         PlayerEntity = GetComponent<Entity>();
         PlayerEntity.HP = status.HP;
         GetComponent<Module_Move>().MoveSpeed = status.Speed;
+        UIManager.Instance.LevelText.text = $"Level : {level}";
     }
 
     void Update()
@@ -25,7 +29,17 @@ public class PlayerSetting : MonoBehaviour
             return;
         }
 
+        if (currPlayerHP != PlayerEntity.HP)
+        {
+            currPlayerHP = PlayerEntity.HP;
+            UIManager.Instance.SetSliderValue(SliderEnum.HP, currPlayerHP);
+        }
+    }
 
+    void Start()
+    {
+        currPlayerHP = PlayerEntity.HP;
+        UIManager.Instance.SetSliderValue(SliderEnum.HP, currPlayerHP);
     }
 
     // 스킬북
@@ -48,7 +62,9 @@ public class PlayerSetting : MonoBehaviour
         {
             level++;
             exp -= 100;
-            Debug.Log($"레벨 없 {level}");
+            UIManager.Instance.LevelText.text = $"Level : {level}";
         }
+
+        UIManager.Instance.SetSliderValue(SliderEnum.EXP, exp);
     }
 }
