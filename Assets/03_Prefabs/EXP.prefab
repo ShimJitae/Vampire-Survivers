@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060d58e4b7807824d8e4a102b74b4773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EXP
-  expValue: 20
+  itemData: {fileID: 11400000, guid: 321861b299279d248a1c4a981fa31619, type: 2}
 --- !u!58 &-6647452442607359458
 CircleCollider2D:
   m_ObjectHideFlags: 0
