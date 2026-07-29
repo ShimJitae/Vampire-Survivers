@@ -25,4 +25,12 @@ public class GameManager : MonoBehaviour
         OnGameOver += () => IsGameOver = true;
         OnGameOver += () => Time.timeScale = 0;
     }
+
+    void Update()
+    {
+        if (IsGameOver && Input.GetKeyDown(KeyCode.R))
+        {
+
+        }
+    }
 }
