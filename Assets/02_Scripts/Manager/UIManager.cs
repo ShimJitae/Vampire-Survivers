@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Slider hpSlider;
     [SerializeField] Slider expSlider;
 
+    [SerializeField] GameObject skillLevelUpPanel;
+
     public bool IsGameOver { get; set; }
 
     void Awake()
@@ -87,6 +89,11 @@ public class UIManager : MonoBehaviour
                 expSlider.value = value;
                 break;
         }
+    }
+
+    public void ActiveSkillLevelUpPanel()
+    {
+
     }
 }
 

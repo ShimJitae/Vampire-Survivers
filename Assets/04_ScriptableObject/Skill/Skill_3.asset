@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6becbb4a349c88749aa0c2faa0e36b1a, type: 3}
+  m_Name: Skill_3
+  m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  SkillID: 
+  DamageValue: 50
+  ValuesByLevel: 010000000200000003000000
+  SkillObj: {fileID: 9195447858640143787, guid: 2a1bc9e2cdc59f545b4430a14af03f37, type: 3}
