@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public class Item : MonoBehaviour
 {
-    public abstract void Use(PlayerSetting ps);
+    public virtual void Use(PlayerSetting ps)
+    {
+        Destroy(gameObject);
+    }
 }

@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSetting
   status: {fileID: 11400000, guid: 76bdb0d67b144964984240a59840eb23, type: 2}
+  canGetItems: []
 --- !u!70 &955692887
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1046,6 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544799244}
   - component: {fileID: 1544799245}
+  - component: {fileID: 1544799246}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1080,6 +1082,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c68a09bef714b4c9ad5021a6c4cfdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!114 &1544799246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544799243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f063a965f3f8914ebb05719793a510c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
+  player_T: {fileID: 955692879}
+  spawnTime: 3
+  spawnRange: 2
+  itemObjs:
+  - {fileID: 1966989164679456521, guid: e58fcabe0f2841d4eb3840c9a54ad634, type: 3}
+  - {fileID: 8366011606660695547, guid: 530183614c9585f4ea94e7a84271d1b8, type: 3}
 --- !u!1 &1701640319
 GameObject:
   m_ObjectHideFlags: 0

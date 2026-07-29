@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ItemSpawner))]
 public class PlayerSetting : MonoBehaviour
 {
     [SerializeField] Status status;
     [SerializeField] List<Item> canGetItems;
-    ItemSpawner itemSpawner;
     public Entity PlayerEntity { get; set; }
     private float exp;
     private int level = 1;
@@ -16,7 +14,6 @@ public class PlayerSetting : MonoBehaviour
         PlayerEntity = GetComponent<Entity>();
         PlayerEntity.HP = status.HP;
         GetComponent<Module_Move>().MoveSpeed = status.Speed;
-        itemSpawner = GetComponent<ItemSpawner>();
     }
 
     void Update()

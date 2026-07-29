@@ -6,5 +6,7 @@ public class Potion : Item
     public override void Use(PlayerSetting ps)
     {
         ps.PlayerEntity.UpdateHP(healValue);
+        Debug.Log($"potion {healValue}");
+        base.Use(ps);
     }
 }

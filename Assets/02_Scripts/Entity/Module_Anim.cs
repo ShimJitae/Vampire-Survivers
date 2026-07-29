@@ -28,7 +28,6 @@ public class Module_Anim : MonoBehaviour
 
     public void SetMoveAnimation(string paraName, Vector2 currDirection)
     {
-        Debug.Log(entity.IsDied);
         if (entity.IsDied)
             return;
 
