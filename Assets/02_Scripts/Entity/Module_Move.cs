@@ -3,14 +3,14 @@ using UnityEngine;
 public class Module_Move : MonoBehaviour
 {
     // 일단 이렇게 넣고 나중에 moster spawner에서 smd 지정해주는걸로
-    private ISetMoveDirection smd;
+    public ISetMoveDirection SMD { get; set; }
 
     [SerializeField] private float moveSpeed = 3f;
     private Rigidbody2D rb;
 
     void Awake()
     {
-        smd = GetComponent<ISetMoveDirection>();
+        SMD = GetComponent<ISetMoveDirection>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -22,9 +22,9 @@ public class Module_Move : MonoBehaviour
 
     public void Move()
     {
-        if (smd == null)
+        if (SMD == null)
             return;
 
-        rb.linearVelocity = smd.Direction.normalized * moveSpeed;
+        rb.linearVelocity = SMD.Direction.normalized * moveSpeed;
     }
 }

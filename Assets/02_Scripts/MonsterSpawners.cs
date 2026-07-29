@@ -1,12 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ObjectPool))]
 public class MonsterSpawners : MonoBehaviour
 {
-    [SerializeField] SMD_Monster smd_Monster;
-
     #region 스폰 관련 변수들
     [SerializeField] ObjectPool monster_Pool;
     [SerializeField] float spawnTime_Min, spawnTime_Max;
@@ -45,6 +44,13 @@ public class MonsterSpawners : MonoBehaviour
 
             GameObject monster = monster_Pool.Get();
             monster.transform.position = spawnPos.position;
+
+            if (monster.GetComponent<Module_Move>() is Module_Move mmm
+            && mmm.SMD == null)
+            {
+                SMD_Monster smdm = mmm.AddComponent<SMD_Monster>();
+                mmm.SMD = smdm;
+            }
         }
 
         // 스폰 후에는 스폰타이머 재설정
