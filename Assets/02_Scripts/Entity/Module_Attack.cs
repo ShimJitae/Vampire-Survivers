@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Module_Attack : MonoBehaviour
 {
-    [SerializeField] private List<AttackElement> aes;
+    private List<AttackElement> aes;
 
     void Awake()
     {
@@ -24,6 +24,11 @@ public class Module_Attack : MonoBehaviour
                 ae.ActiveHitArea(true);
             }
         };
+    }
+
+    public void AddAttackElement(AttackElement ae)
+    {
+        aes.Add(ae);
     }
 }
 

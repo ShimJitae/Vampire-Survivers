@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 115c1ec8a7ba8804ea1756284ca92e9d, type: 3}
-  m_Name: Hard
+  m_Name: Normal
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
-  Speed: 5
-  HP: 50
+  Damage: 15
+  Speed: 3
+  HP: 40

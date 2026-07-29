@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115c1ec8a7ba8804ea1756284ca92e9d, type: 3}
-  m_Name: Normal
-  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
-  Speed: 3
-  HP: 40
+  m_Script: {fileID: 11500000, guid: 4aea2b1fe3b76b844b5ca66a1f166f8e, type: 3}
+  m_Name: Status
+  m_EditorClassIdentifier: Assembly-CSharp::Status
+  Speed: 8
+  HP: 100
