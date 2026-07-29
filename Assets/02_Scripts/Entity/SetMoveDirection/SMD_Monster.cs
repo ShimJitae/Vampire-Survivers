@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SMD_Monster : MonoBehaviour, ISetMoveDirection
 {
-    static private Transform player_T;
+    [SerializeField] private Transform player_T;
 
     void Awake()
     {
