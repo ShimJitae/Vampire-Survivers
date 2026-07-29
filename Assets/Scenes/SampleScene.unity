@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35de0675eb5bebf428229547cad8d737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Module_Move
-  moveSpeed: 7
+  moveSpeed: 8
 --- !u!50 &955692883
 Rigidbody2D:
   serializedVersion: 5
@@ -901,6 +901,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawners
   monster_Pool: {fileID: 1219289507}
+  difficulty:
+  - {fileID: 11400000, guid: bd68352f00927244697d88de32c61a30, type: 2}
+  - {fileID: 11400000, guid: 9be1d4dcd08a60549932156ada114eaf, type: 2}
+  - {fileID: 11400000, guid: eafc20194ccdf2e4e8487056b3a7b26a, type: 2}
   spawnTime_Min: 1.5
   spawnTime_Max: 3
   spawnNum_Min: 2

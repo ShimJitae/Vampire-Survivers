@@ -8,6 +8,7 @@ public class MonsterSpawners : MonoBehaviour
 {
     #region 스폰 관련 변수들
     [SerializeField] ObjectPool monster_Pool;
+    [SerializeField] List<MonsterData> difficulty;
     [SerializeField] float spawnTime_Min, spawnTime_Max;
     [SerializeField] int spawnNum_Min, spawnNum_Max;
     float curr_SpawnTime, spawnTimer;
@@ -51,6 +52,10 @@ public class MonsterSpawners : MonoBehaviour
                 SMD_Monster smdm = mmm.AddComponent<SMD_Monster>();
                 mmm.SMD = smdm;
             }
+
+            MonsterData md = difficulty[Random.Range(0, difficulty.Count)];
+            monster.GetComponent<Entity>().HP = md.HP;
+            monster.GetComponent<Module_Move>().MoveSpeed = md.Speed;
         }
 
         // 스폰 후에는 스폰타이머 재설정
