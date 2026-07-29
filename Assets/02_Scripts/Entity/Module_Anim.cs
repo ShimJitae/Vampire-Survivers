@@ -13,9 +13,11 @@ public class Module_Anim : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         GetComponent<Entity>().OnCreated += () => isDied = false;
+
+        GetComponent<Entity>().OnDied += () => SetDieAnimation();
     }
 
-    public void SetDieAnimation()
+    void SetDieAnimation()
     {
         isDied = true;
         animator.SetBool("IsDied", isDied);
@@ -23,6 +25,9 @@ public class Module_Anim : MonoBehaviour
 
     public void SetMoveAnimation(string paraName, Vector2 currDirection)
     {
+        if (isDied)
+            return;
+
         float animV = currDirection.x != 0 ? 1 : currDirection.y != 0 ? 1 : 0;
         animator.SetFloat(paraName, animV);
 

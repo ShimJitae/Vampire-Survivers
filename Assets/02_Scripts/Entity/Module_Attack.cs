@@ -17,11 +17,11 @@ public class Module_Attack : MonoBehaviour
         };
 
         // 캐릭터가 살아나면 공격 Element를 모두 켜도록.
-        GetComponent<Entity>().OnDied += () =>
+        GetComponent<Entity>().OnCreated += () =>
         {
             foreach (AttackElement ae in aes)
             {
-                ae.ActiveHitArea(true));
+                ae.ActiveHitArea(true);
             }
         };
     }
