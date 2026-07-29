@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ItemSpawner))]
 public class PlayerSetting : MonoBehaviour
 {
     [SerializeField] Status status;
     [SerializeField] List<Item> canGetItems;
+    ItemSpawner itemSpawner;
     public Entity PlayerEntity { get; set; }
     private float exp;
     private int level = 1;
@@ -14,14 +16,19 @@ public class PlayerSetting : MonoBehaviour
         PlayerEntity = GetComponent<Entity>();
         PlayerEntity.HP = status.HP;
         GetComponent<Module_Move>().MoveSpeed = status.Speed;
+        itemSpawner = GetComponent<ItemSpawner>();
     }
 
     void Update()
     {
         if (PlayerEntity.IsDied)
         {
-            GameManager.Instance.OnGameOver.Invoke();
+            if (!GameManager.Instance.IsGameOver)
+                GameManager.Instance.OnGameOver.Invoke();
+            return;
         }
+
+
     }
 
     // 스킬북
@@ -44,6 +51,7 @@ public class PlayerSetting : MonoBehaviour
         {
             level++;
             exp -= 100;
+            Debug.Log($"레벨 없 {level}");
         }
     }
 }
