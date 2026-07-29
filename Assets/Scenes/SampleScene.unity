@@ -952,7 +952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1ffc41fefa14d458fc75595d31f87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawners
-  playerEntity: {fileID: 0}
   monster_Pool: {fileID: 1219289507}
   difficulty:
   - {fileID: 11400000, guid: bd68352f00927244697d88de32c61a30, type: 2}

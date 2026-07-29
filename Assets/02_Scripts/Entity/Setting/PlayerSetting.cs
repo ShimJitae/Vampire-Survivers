@@ -1,20 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSetting : MonoBehaviour
 {
     [SerializeField] Status status;
-    Entity playerEntity;
+    [SerializeField] List<Item> canGetItems;
+    public Entity PlayerEntity { get; set; }
+    private float exp;
+    private int level = 1;
 
     void Awake()
     {
-        playerEntity = GetComponent<Entity>();
-        playerEntity.HP = status.HP;
+        PlayerEntity = GetComponent<Entity>();
+        PlayerEntity.HP = status.HP;
         GetComponent<Module_Move>().MoveSpeed = status.Speed;
     }
 
     void Update()
     {
-        if (playerEntity.IsDied)
+        if (PlayerEntity.IsDied)
         {
             GameManager.Instance.OnGameOver.Invoke();
         }
@@ -22,5 +26,24 @@ public class PlayerSetting : MonoBehaviour
 
     // 스킬북
 
-    // 아이템 획득
+    // 아이템 만들기
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Item"))
+        {
+            if (collision.gameObject.GetComponent<Item>() is Item item)
+                item.Use(this);
+        }
+    }
+
+    public void UpdateEXP(float value)
+    {
+        exp += value;
+
+        if (exp >= 100)
+        {
+            level++;
+            exp -= 100;
+        }
+    }
 }
