@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class PlayerSetting : MonoBehaviour
 
     public Entity PlayerEntity { get; set; }
     float currPlayerHP;
+
+
+
 
     void Awake()
     {
@@ -40,9 +44,9 @@ public class PlayerSetting : MonoBehaviour
     {
         currPlayerHP = PlayerEntity.HP;
         UIManager.Instance.SetSliderValue(SliderEnum.HP, currPlayerHP);
-    }
 
-    // 스킬북
+        StartCoroutine(FindNearestEnemy());
+    }
 
     // 아이템 만들기
     void OnTriggerEnter2D(Collider2D collision)
@@ -66,5 +70,40 @@ public class PlayerSetting : MonoBehaviour
         }
 
         UIManager.Instance.SetSliderValue(SliderEnum.EXP, exp);
+    }
+
+
+    // 스킬북
+    [SerializeField] float detectRange = 4;
+    public Transform NearestEnemy { get; set; }
+    public IEnumerator FindNearestEnemy()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(transform.position, detectRange);
+
+        NearestEnemy = null;
+        float nearestDistanceSqr = Mathf.Infinity;
+
+        foreach (Collider2D detectedObject in detectedObjects)
+        {
+            if (!detectedObject.CompareTag("Monster"))
+                continue;
+
+            Vector2 direction = detectedObject.transform.position - transform.position;
+
+            float distanceSqr = direction.sqrMagnitude;
+
+            if (distanceSqr < nearestDistanceSqr)
+            {
+                nearestDistanceSqr = distanceSqr;
+                NearestEnemy = detectedObject.transform;
+            }
+        }
+
+        if (NearestEnemy != null)
+        {
+            Debug.Log($"가장 가까운 몬스터: {NearestEnemy.name}");
+        }
     }
 }

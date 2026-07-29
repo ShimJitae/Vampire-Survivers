@@ -8,4 +8,5 @@ public class SkillData : ScriptableObject
     public int DamageValue;
     public List<int> ValuesByLevel;
     public GameObject SkillObj;
+    public int MaxLevel;
 }

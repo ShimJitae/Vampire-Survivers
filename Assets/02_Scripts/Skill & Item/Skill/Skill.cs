@@ -1,18 +1,36 @@
 using UnityEngine;
 
-public class Skill : MonoBehaviour
+public abstract class Skill : MonoBehaviour
 {
-    [SerializeField] private SkillData skillData;
+    [SerializeField] protected SkillData skillData;
 
-    int level;
+    protected int level;
+    protected int maxLevel;
+    protected float coolTime, coolTimer;
 
     void Awake()
     {
         level = 0;
+        maxLevel = skillData.MaxLevel;
     }
 
     public void LevelUp()
     {
+        if (maxLevel <= level)
+        {
+            return;
+        }
         level++;
     }
+
+    public void ReduceCoolTime(float deltaTime)
+    {
+        coolTimer -= deltaTime;
+        if (coolTimer <= 0)
+        {
+            coolTimer = coolTime;
+        }
+    }
+
+    public abstract void UseSkill();
 }
