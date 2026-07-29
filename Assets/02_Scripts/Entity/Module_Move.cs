@@ -8,6 +8,7 @@ public class Module_Move : MonoBehaviour
     [SerializeField] private float moveSpeed = 0;
     public float MoveSpeed { get; set; }
     private Rigidbody2D rb;
+    Entity entity;
 
     void Awake()
     {
@@ -19,6 +20,8 @@ public class Module_Move : MonoBehaviour
         SMD = GetComponent<ISetMoveDirection>();
 
         rb = GetComponent<Rigidbody2D>();
+
+        GetComponent<Entity>().OnDied += () => rb.linearVelocity = Vector2.zero;
     }
 
     void FixedUpdate()

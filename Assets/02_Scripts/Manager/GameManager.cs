@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     static public GameManager Instance => instance;
 
+    public Action OnGameOver;
     public bool IsGameOver { get; set; }
 
     void Awake()
@@ -16,5 +18,11 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
+    }
+
+    void Start()
+    {
+        OnGameOver += () => IsGameOver = true;
+        OnGameOver += () => Time.timeScale = 0;
     }
 }

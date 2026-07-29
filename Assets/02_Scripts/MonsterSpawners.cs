@@ -56,6 +56,7 @@ public class MonsterSpawners : MonoBehaviour
             MonsterData md = difficulty[Random.Range(0, difficulty.Count)];
             monster.GetComponent<Entity>().HP = md.HP;
             monster.GetComponent<Module_Move>().MoveSpeed = md.Speed;
+            monster.GetComponent<Module_Attack>().FirstAE.Damage = md.Damage;
         }
 
         // 스폰 후에는 스폰타이머 재설정

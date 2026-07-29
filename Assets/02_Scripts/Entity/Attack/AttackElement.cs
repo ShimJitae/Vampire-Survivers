@@ -23,7 +23,7 @@ public class AttackElement : MonoBehaviour
         if (collision.CompareTag(target.ToString()))
         {
             Entity entity = collision.GetComponent<Entity>();
-            entity.UpdateHP(Damage);
+            entity.UpdateHP(-Damage);
         }
     }
 }

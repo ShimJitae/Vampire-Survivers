@@ -19,11 +19,13 @@ public class Entity : MonoBehaviour
 
         OnDied += () =>
         {
+            IsDied = true;
             moveModule.enabled = false;
         };
 
         OnCreated += () =>
         {
+            IsDied = false;
             moveModule.enabled = true;
         };
     }
@@ -37,6 +39,7 @@ public class Entity : MonoBehaviour
     public float HP { get; set; }
     public event Action OnCreated;
     public event Action OnDied;
+    public bool IsDied { get; set; }
 
     void OnEnable()
     {
@@ -48,7 +51,7 @@ public class Entity : MonoBehaviour
     {
         HP += v_HP;
 
-        if (HP <= 0)
+        if (HP <= 0 && !IsDied)
         {
             HP = 0;
             OnDied?.Invoke();

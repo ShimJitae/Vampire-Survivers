@@ -4,8 +4,14 @@ using UnityEngine;
 public class Module_Attack : MonoBehaviour
 {
     private List<AttackElement> aes;
+    public AttackElement FirstAE => aes[0];
 
     void Awake()
+    {
+        aes = new();
+    }
+
+    void Start()
     {
         // 캐릭터가 죽으면 공격 Element를 모두 끄도록.
         GetComponent<Entity>().OnDied += () =>
