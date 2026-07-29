@@ -1,16 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Module_Attack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<AttackElement> aes;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        // 캐릭터가 죽으면 공격 Element를 모두 끄도록.
+        GetComponent<Entity>().OnDied += () =>
+        {
+            foreach (AttackElement ae in aes)
+            {
+                ae.ActiveHitArea(false);
+            }
+        };
+
+        // 캐릭터가 살아나면 공격 Element를 모두 켜도록.
+        GetComponent<Entity>().OnDied += () =>
+        {
+            foreach (AttackElement ae in aes)
+            {
+                ae.ActiveHitArea(true));
+            }
+        };
     }
+}
+
+public enum AttackTarget
+{
+    Monster,
+    Player,
 }

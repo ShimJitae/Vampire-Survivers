@@ -21,11 +21,6 @@ public class Module_Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
-
-    }
-
     void FixedUpdate()
     {
         Move();

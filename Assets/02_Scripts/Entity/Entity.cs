@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Module_Move))]
@@ -15,6 +16,16 @@ public class Entity : MonoBehaviour
         moveModule = GetComponent<Module_Move>();
         attackModule = GetComponent<Module_Attack>();
         animModule = GetComponent<Module_Anim>();
+
+        OnDied += () =>
+        {
+            moveModule.enabled = false;
+        };
+
+        OnCreated += () =>
+        {
+            moveModule.enabled = true;
+        };
     }
 
     void Update()
@@ -24,11 +35,24 @@ public class Entity : MonoBehaviour
 
     // 체력
     public float HP { get; set; }
+    public event Action OnCreated;
+    public event Action OnDied;
+
+    void OnEnable()
+    {
+        OnCreated?.Invoke();
+    }
 
     // 체력 깍이는 메서드
     public void UpdateHP(float v_HP)
     {
         HP += v_HP;
+
+        if (HP <= 0)
+        {
+            HP = 0;
+            OnDied?.Invoke();
+        }
     }
 
     Vector2 currDirection;

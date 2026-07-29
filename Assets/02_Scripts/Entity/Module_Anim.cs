@@ -4,12 +4,21 @@ public class Module_Anim : MonoBehaviour
 {
     Animator animator;
     SpriteRenderer sr;
+    bool isDied;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
 
         sr = GetComponent<SpriteRenderer>();
+
+        GetComponent<Entity>().OnCreated += () => isDied = false;
+    }
+
+    public void SetDieAnimation()
+    {
+        isDied = true;
+        animator.SetBool("IsDied", isDied);
     }
 
     public void SetMoveAnimation(string paraName, Vector2 currDirection)

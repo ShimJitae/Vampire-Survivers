@@ -21,7 +21,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             // 오브젝트 풀링할 프리팹을 풀 크기만큼 만들어준다.
-            GameObject obj = Instantiate(pooledPrefab, transform);
+            GameObject obj = Instantiate(pooledPrefab);
             // 생성했으면 비활성화한다.
             obj.SetActive(false);
             // 풀에 넣어준다.
@@ -49,8 +49,6 @@ public class ObjectPool : MonoBehaviour
             // 혹은 새로운 큐를 다시 만들 수도 있음.
         }
 
-        obj.transform.SetParent(null);
-
         // 반환
         return obj;
     }
@@ -59,7 +57,6 @@ public class ObjectPool : MonoBehaviour
 
     public void Return(GameObject obj)
     {
-        obj.transform.SetParent(transform);
         // 비활성화하고
         obj.SetActive(false);
         // 풀에 넣어줌.
