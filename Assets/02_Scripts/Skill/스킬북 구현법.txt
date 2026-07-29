@@ -1,0 +1,6 @@
+스킬 구현하는법
+
+SkillBook을 만들고,
+SkillBook에서 Time.deltaTime을 지속적으로 모든 스킬들의 curr_CoolTime에 빼준다.
+스킬들을 순회해서 curr_CoolTime이 0인 스킬을 Use해준다.
+Use할 때마다 curr_CoolTime을 InitCoolTime으로 변경해준다.
