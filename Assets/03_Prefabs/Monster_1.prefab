@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5421956549863753394}
   - component: {fileID: 4933160308254864260}
   - component: {fileID: 8057135272142992457}
+  - component: {fileID: 2081823256040627746}
   - component: {fileID: 2270242302287535999}
   m_Layer: 0
   m_Name: Monster_1
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.38, y: 1.92}
+  m_Size: {x: 0.7885714, y: 1.0971428}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +107,7 @@ Animator:
   m_GameObject: {fileID: 3363404080552202754}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea0a4df3efb587347bcd8012520e8116, type: 2}
+  m_Controller: {fileID: 9100000, guid: 17ca99686811bfa4094c2bfb9d578046, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -170,6 +171,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d7fef39ab64b34a92bdfa41a29d5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Module_Attack
+--- !u!114 &2081823256040627746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363404080552202754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dba0701fee5f87458a663e7792ac775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Module_Anim
 --- !u!114 &2270242302287535999
 MonoBehaviour:
   m_ObjectHideFlags: 0

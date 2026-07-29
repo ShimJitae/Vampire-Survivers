@@ -31,11 +31,6 @@ public class Entity : MonoBehaviour
         HP += v_HP;
     }
 
-    public void Attack()
-    {
-        //
-    }
-
     Vector2 currDirection;
     public void SetAnim()
     {
