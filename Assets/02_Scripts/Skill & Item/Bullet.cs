@@ -4,8 +4,9 @@ public class Bullet : MonoBehaviour
 {
     Vector2 direction;
 
-    public void Shoot(Vector2 _direction)
+    public void Shoot(Vector3 position, Vector2 _direction)
     {
+        transform.position = position;
         direction = _direction;
     }
 
@@ -16,6 +17,6 @@ public class Bullet : MonoBehaviour
         if (direction == Vector2.zero)
             return;
 
-        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+        transform.position += ((Vector3)direction + (Vector3)transform.right.normalized) * moveSpeed * Time.deltaTime;
     }
 }

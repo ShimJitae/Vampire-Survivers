@@ -8,6 +8,8 @@ public class Skill_3 : Skill
 
     void Awake()
     {
+        surigums = new();
+
         skillObj = skillData.SkillObj.transform;
         for (int i = 0; i < skillData.SkillObj.transform.childCount; i++)
         {

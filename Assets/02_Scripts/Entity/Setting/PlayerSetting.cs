@@ -67,6 +67,8 @@ public class PlayerSetting : MonoBehaviour
             level++;
             exp -= 100;
             UIManager.Instance.LevelText.text = $"Level : {level}";
+
+
         }
 
         UIManager.Instance.SetSliderValue(SliderEnum.EXP, exp);
@@ -74,7 +76,7 @@ public class PlayerSetting : MonoBehaviour
 
 
     // 스킬북
-    [SerializeField] float detectRange = 4;
+    [SerializeField] float detectRange = 8;
     public Transform NearestEnemy { get; set; }
     public IEnumerator FindNearestEnemy()
     {

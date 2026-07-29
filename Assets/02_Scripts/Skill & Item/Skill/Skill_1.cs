@@ -23,24 +23,27 @@ public class Skill_1 : Skill
     Vector2 direction;
     IEnumerator Shoot()
     {
-        if (level <= 0)
+        while (true)
         {
-            yield return new WaitForSeconds(2.5f);
-        }
+            if (level <= 0)
+            {
+                yield return new WaitForSeconds(2.5f);
+            }
 
-        yield return new WaitForSeconds(skillData.ValuesByLevel[level]);
+            yield return new WaitForSeconds(skillData.ValuesByLevel[level]);
 
-        if (ps.NearestEnemy == null)
-        {
-            direction = Vector2.right;
-        }
-        else
-        {
-            direction = (ps.NearestEnemy.position - transform.position).normalized;
-        }
+            if (ps.NearestEnemy == null)
+            {
+                direction = Vector2.right;
+            }
+            else
+            {
+                direction = (ps.NearestEnemy.position - transform.position).normalized;
+            }
 
-        GameObject bu = Instantiate(bullet);
-        bu.GetComponent<Bullet>().Shoot(direction);
-        Destroy(bu, 3.5f);
+            GameObject bu = Instantiate(bullet);
+            bu.GetComponent<Bullet>().Shoot(transform.position, direction);
+            Destroy(bu, 3.5f);
+        }
     }
 }

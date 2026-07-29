@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   SkillID: Skill_2
   DamageValue: 30
-  ValuesByLevel: 050000000300000001000000
+  ValuesByLevel: 010000000100000001000000
   SkillObj: {fileID: 7230020040373555730, guid: c68f13fa87c27e74188f165f4e77fbd8, type: 3}
   MaxLevel: 3

@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 
         restartText.gameObject.SetActive(false);
         puaseText.gameObject.SetActive(false);
+        skillLevelUpPanel.gameObject.SetActive(false);
     }
 
     void Start()
@@ -93,7 +94,7 @@ public class UIManager : MonoBehaviour
 
     public void ActiveSkillLevelUpPanel()
     {
-
+        skillLevelUpPanel.SetActive(true);
     }
 }
 
